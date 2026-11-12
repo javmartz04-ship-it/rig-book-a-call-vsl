@@ -70,14 +70,15 @@ h2 em.e{display:block}
 .eyebrow{display:inline-flex;align-items:center;gap:12px;margin-top:clamp(18px,3.4svh,40px);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .eyebrow::before,.eyebrow::after{content:"";width:24px;height:1px;background:var(--gold)}
 .eyebrow b{color:var(--ink);font-weight:700}
-.hero h1{margin:clamp(12px,1.8svh,18px) auto 0;font-size:clamp(36px,min(4.4vw,7.4svh),70px);line-height:1.0}
-.hero h1 .ln:first-child{white-space:nowrap}
+.hero h1{margin:clamp(30px,5.6svh,60px) auto 0;font-size:clamp(34px,min(4.1vw,6.2svh),62px);line-height:1.0}
+.hero h1 .ln{white-space:nowrap}
 .hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
 .hero h1 .ln>span{display:block}
 .hero h1 em.e{letter-spacing:-.02em}
 .js .hero h1 .ln>span{transform:translateY(105%);transition:transform 1.1s var(--ease)}
 .js .hero.go h1 .ln>span{transform:none}
 .js .hero.go h1 .ln:nth-child(2)>span{transition-delay:.12s}
+.js .hero.go h1 .ln:nth-child(3)>span{transition-delay:.24s}
 .sub{max-width:38em;margin:clamp(12px,1.8svh,18px) auto 0;font-size:clamp(16.5px,1.3vw,19px);line-height:1.55;color:var(--body);text-wrap:balance}
 .sub b{color:var(--ink);font-weight:700}
 
@@ -195,6 +196,8 @@ h2 em.e{display:block}
 .rs-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:clamp(32px,5vw,80px);align-items:end}
 .ts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(32px,4vw,64px);margin-top:clamp(44px,5vw,64px)}
 .t{display:grid;grid-template-columns:clamp(150px,13vw,190px) minmax(0,1fr);gap:clamp(20px,2.2vw,32px);padding:clamp(28px,3vw,40px) 0;border-top:1px solid var(--line-d)}
+.t.wide{grid-column:1/-1;grid-template-columns:clamp(150px,13vw,190px) minmax(0,1fr)}
+.t.wide .tq{max-width:44em}
 .tv{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:var(--r);background:#111}
 .tv video,.tv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .tv .play{width:54px;height:54px;margin:-27px 0 0 -27px;box-shadow:0 0 0 7px rgba(255,255,255,.14),0 12px 30px rgba(0,0,0,.5)}
@@ -223,7 +226,7 @@ h2 em.e{display:block}
 .h-photo img{width:100%;height:auto;aspect-ratio:4/4.2;object-fit:cover;object-position:50% 0;border-radius:3px}
 .host h2{font-size:clamp(36px,4.2vw,62px)}
 .host .lead+.lead{margin-top:18px}
-.host .lead:first-of-type{margin-top:26px}
+.host h2+.lead{margin-top:26px}
 .ticks{list-style:none;margin-top:30px;border-top:1px solid var(--line)}
 .ticks li{position:relative;padding:14px 0 14px 34px;border-bottom:1px solid var(--line);font-size:16.5px;font-weight:600;color:var(--ink)}
 .ticks li::before{content:"";position:absolute;left:3px;top:20px;width:12px;height:7px;border-left:1.5px solid var(--gold-ink);border-bottom:1.5px solid var(--gold-ink);transform:rotate(-45deg)}
@@ -354,7 +357,7 @@ h2 em.e{display:block}
 @media (max-width:1100px){
   .rail{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:44px}
   .rail::before{display:none}
-  .t{grid-template-columns:140px minmax(0,1fr)}
+  .t,.t.wide{grid-template-columns:140px minmax(0,1fr)}
 }
 @media (max-width:900px){
   .pr-grid,.m-head,.rs-head,.h-grid,.vs{grid-template-columns:1fr}
@@ -372,8 +375,8 @@ h2 em.e{display:block}
   .eyebrow{margin-top:22px;font-size:10.5px;letter-spacing:.16em;gap:8px}
   .eyebrow::before,.eyebrow::after{width:14px;flex:none}
   .eyebrow span{max-width:19em}
-  .hero h1{font-size:clamp(33px,9.4vw,42px);margin-top:10px;text-wrap:balance}
-  .hero h1 .ln:first-child{white-space:normal}
+  .hero h1{font-size:clamp(33px,9.4vw,42px);margin-top:34px;text-wrap:balance}
+  .hero h1 .ln{white-space:normal}
   .sub{font-size:16px;margin-top:12px}
   .vsl{width:100%;margin-top:18px;padding:5px}
   .vsl-t{max-width:52%}
@@ -388,7 +391,7 @@ h2 em.e{display:block}
   .rail li:first-child{border-top:0}
   .rail h3{margin-top:8px}
   .rail p{grid-column:2}
-  .t{grid-template-columns:118px minmax(0,1fr);gap:16px}
+  .t,.t.wide{grid-template-columns:118px minmax(0,1fr);gap:16px}
   .tq blockquote{font-size:18.5px}
   .tq p{font-size:14.5px}
   .tv .play{width:46px;height:46px;margin:-23px 0 0 -23px}
@@ -424,9 +427,8 @@ h2 em.e{display:block}
 
 <!-- 01 HERO: eyebrow proof tag, headline + emphasis line, sub, VSL, one button, risk line, proof -->
 <section class="hero" id="hero" data-section="hero">
-  <p class="eyebrow"><span>Managing Up To <b>$500K</b> In Ad Spend For Agents</span></p>
   <h1><span class="ln"><span>Medicare Agent? Could You Take On More Clients?</span></span><span class="ln"><span><em class="e">Then This Is For You.</em></span></span></h1>
-  <p class="sub">For agents producing $100K+ a year and agency owners. We build your <b>Marketing Machine</b>, the ads, the follow-up and the CRM, and run it with you for a full year.</p>
+  <p class="sub">For $100K+ agents who aren't getting the leads they want. We build your <b>Marketing Machine</b>, the ads, the follow-up and the CRM, and run it with you for a year, so new clients book on your calendar every month, not just in AEP.</p>
 
   <div class="vsl" id="vsl">
     <div class="vsl-in">
@@ -642,7 +644,7 @@ h2 em.e{display:block}
   </div>
 </section>
 
-<!-- 06 PROOF: one testimonial per objection -->
+<!-- 06 PROOF: every video testimonial we have -->
 <section class="results dark" data-section="results">
   <div class="wrap">
     <div class="rs-head">
@@ -685,12 +687,48 @@ h2 em.e{display:block}
           <cite><b>Franco</b>Agent, first Facebook ads ever</cite>
         </div>
       </article>
+      <article class="t r">
+        <div class="tv" data-v="assets/video/barry.mp4" data-cc="assets/video/barry.vtt"><img src="assets/video/barry.jpg" alt="Barry" loading="lazy"><button type="button" class="play" aria-label="Play Barry&rsquo;s video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5z"/></svg></button><span class="len">0:55</span></div>
+        <div class="tq">
+          <blockquote>&ldquo;My agency has scaled from doing <span class="g">20 deals a week to 50</span>.&rdquo;</blockquote>
+          <p>&ldquo;Now I have quantity and I have quality&hellip; Everything is absolutely running better than it ever has.&rdquo;</p>
+          <cite><b>Barry</b>Agency owner, 7 employees</cite>
+        </div>
+      </article>
+      <article class="t r">
+        <div class="tv" data-v="assets/video/justin.mp4" data-cc="assets/video/justin.vtt"><img src="assets/video/justin.jpg" alt="Justin Gray" loading="lazy"><button type="button" class="play" aria-label="Play Justin&rsquo;s video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5z"/></svg></button><span class="len">0:32</span></div>
+        <div class="tq">
+          <blockquote>&ldquo;We&rsquo;ve come up with how to get ASL leads and they&rsquo;re like <span class="g">12 bucks</span>.&rdquo;</blockquote>
+          <p>&ldquo;My dad&rsquo;s deaf and I know sign language&hellip; I&rsquo;m gonna crush all AEP because of it.&rdquo;</p>
+          <cite><b>Justin Gray</b>Medicare agent, ASL market</cite>
+        </div>
+      </article>
+      <article class="t r">
+        <div class="tv" data-v="assets/video/taggart.mp4" data-cc="assets/video/taggart.vtt"><img src="assets/video/taggart.jpg" alt="Taggart Allen" loading="lazy"><button type="button" class="play" aria-label="Play Taggart&rsquo;s video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5z"/></svg></button><span class="len">0:35</span></div>
+        <div class="tq">
+          <blockquote>&ldquo;Johnny showed up <span class="g">every single day</span> and trained me consistently.&rdquo;</blockquote>
+          <p>&ldquo;I&rsquo;m pretty new in the Medicare space&hellip; He made sure I understood everything about all different plans.&rdquo;</p>
+          <cite><b>Taggart Allen</b>Medicare agent, new to the industry</cite>
+        </div>
+      </article>
+      <article class="t r">
+        <div class="tv" data-v="assets/video/cameron.mp4" data-cc="assets/video/cameron.vtt"><img src="assets/video/cameron.jpg" alt="Cameron De La Pena" loading="lazy"><button type="button" class="play" aria-label="Play Cameron&rsquo;s video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5z"/></svg></button><span class="len">0:34</span></div>
+        <div class="tq">
+          <blockquote>&ldquo;Johnny has really helped me understand <span class="g">the marketing side</span> of things.&rdquo;</blockquote>
+          <p>&ldquo;That&rsquo;s how we&rsquo;ve got to where we&rsquo;ve got in our business, just kind of replicating what they&rsquo;ve done.&rdquo;</p>
+          <cite><b>Cameron De La Pena</b>Medicare agent</cite>
+        </div>
+      </article>
+      <article class="t r wide">
+        <div class="tv" data-v="assets/video/brandon.mp4" data-cc="assets/video/brandon.vtt"><img src="assets/video/brandon.jpg" alt="Brandon De La Pena" loading="lazy"><button type="button" class="play" aria-label="Play Brandon&rsquo;s video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5z"/></svg></button><span class="len">2:26</span></div>
+        <div class="tq">
+          <blockquote>&ldquo;They have <span class="g">every tool you need to grow your agency</span>, whether you&rsquo;re a solo agent or an agency owner.&rdquo;</blockquote>
+          <p>&ldquo;Everyone can have good marketing, but if you don&rsquo;t know the sales process, the back end, the automations, the systems, they can do it all.&rdquo;</p>
+          <cite><b>Brandon De La Pena</b>Agency owner</cite>
+        </div>
+      </article>
     </div>
-    <figure class="receipt r">
-      <figcaption class="receipt-h"><strong>One campaign, last 30 days: <span>3,459 Medicare leads at $1.64 each.</span></strong><small>Meta Ads Manager, Sep 6 to Oct 5, 2026. Individual results vary.</small></figcaption>
-      <img class="d" src="assets/ads-row.webp" width="2000" height="148" alt="Meta Ads Manager row: Veteran Video Ads, 3,459 leads, reach 168,330, $1.64 per lead, $5,672.92 spent" loading="lazy">
-      <img class="m" src="assets/ads-row-m.webp" width="843" height="136" alt="Meta Ads Manager row: 3,459 leads at $1.64 per lead" loading="lazy">
-    </figure>
+
   </div>
 </section>
 
@@ -699,9 +737,10 @@ h2 em.e{display:block}
   <div class="wrap h-grid">
     <div class="h-photo r"><img src="assets/johnny-steeple-color.webp" width="1544" height="1398" alt="Johnny Brock, founder of The Real Insurance Group" loading="lazy"></div>
     <div class="r">
-      <h2>Hi, I&rsquo;m Johnny Brock. <em class="e">I&rsquo;ve Sat Where You&rsquo;re Sitting.</em></h2>
-      <p class="lead">I came up under my brother, inside a hundred million dollar agency, and I was the top producer there. Selling was never the hard part. Getting the leads, and a team to handle them, was.</p>
-      <p class="lead">So I went and learned marketing, and paid eighteen thousand dollars to do it. Sales gets you paid. Marketing gets you scale. Now my team builds that machine for agents, and you work with us directly, not an account rep.</p>
+      <p class="label">Meet Johnny Brock</p>
+      <h2>He Was The Top Producer. <em class="e">Then He Learned Marketing.</em></h2>
+      <p class="lead">Johnny came up under his brother, inside a hundred million dollar agency, and was the top producer there. Selling was never the hard part. Getting the leads, and a team to handle them, was.</p>
+      <p class="lead">So he went and learned marketing, and paid eighteen thousand dollars to do it. Sales gets you paid. Marketing gets you scale. Now his team builds that machine for agents, and you work with Johnny directly, not an account rep.</p>
       <ul class="ticks">
         <li>Top producer inside a $100M agency</li>
         <li>Seven years selling Medicare, over 4,000 policies</li>
