@@ -428,6 +428,48 @@ h2 em.e{display:block}
   .js .r,.js .hero h1 .ln>span{opacity:1;transform:none;filter:none;transition:none}
   .js .chart path.draw{stroke-dashoffset:0;transition:none}
 }
+/* cohort: seats + deadline (numbers come from COHORT in the script) */
+.cohort-pill{display:inline-flex;align-items:center;gap:12px;margin-top:clamp(14px,2.4svh,26px);padding:7px 14px 7px 8px;border-radius:999px;background:var(--ink);color:#fff;font-size:13px;font-weight:600;line-height:1.2;box-shadow:0 10px 24px -14px rgba(10,10,10,.6)}
+.cohort-pill .tag{padding:4px 9px;border-radius:999px;background:var(--gold);color:var(--ink);font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.cohort-pill b{color:var(--gold);font-weight:800}
+.cohort-pill .sep{width:1px;height:14px;background:rgba(255,255,255,.22)}
+.cohort-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(201,168,106,.7);animation:pulse 2s var(--ease) infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,168,106,.6)}70%{box-shadow:0 0 0 9px rgba(201,168,106,0)}100%{box-shadow:0 0 0 0 rgba(201,168,106,0)}}
+.cohort-pill+h1{margin-top:clamp(18px,3svh,34px)!important}
+.seats{display:grid;grid-template-columns:repeat(15,1fr);gap:6px}
+.seats i{aspect-ratio:1;border-radius:2px;background:rgba(255,255,255,.12)}
+.seats i.open{background:var(--gold);box-shadow:0 0 14px -4px rgba(201,168,106,.7)}
+.js .seats i.open{opacity:0;transform:scale(.6);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.js .seats.in i.open{opacity:1;transform:none}
+.cohort{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);max-width:960px;margin:clamp(40px,5vw,60px) auto 0;text-align:left;border-radius:6px;background:linear-gradient(180deg,#141414,#0c0c0c);box-shadow:0 0 0 1px rgba(255,255,255,.09),0 1px 0 rgba(255,255,255,.06) inset,0 40px 80px -40px rgba(0,0,0,.8)}
+.cohort>div{padding:clamp(24px,3vw,38px)}
+.cohort>div+div{border-left:1px solid rgba(255,255,255,.09)}
+.ck{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--on-d-m)}
+.cn{display:flex;align-items:baseline;gap:12px;margin:10px 0 20px}
+.cn strong{font-size:clamp(56px,6vw,84px);font-weight:800;line-height:.9;letter-spacing:-.04em;color:var(--gold)}
+.cn span{font-size:16px;color:#fff;font-weight:600}
+.cn span small{display:block;font-size:13.5px;font-weight:400;color:var(--on-d-m)}
+.legend{display:flex;gap:18px;margin-top:14px;font-size:12.5px;color:var(--on-d-m)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{width:11px;height:11px;border-radius:2px;background:rgba(255,255,255,.12)}
+.legend i.open{background:var(--gold)}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 18px}
+.cd div{padding:12px 4px 10px;border-radius:2px;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);text-align:center}
+.cd b{display:block;font-size:clamp(26px,2.6vw,34px);font-weight:800;letter-spacing:-.03em;color:#fff;font-variant-numeric:tabular-nums;line-height:1}
+.cd small{display:block;margin-top:6px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--on-d-m)}
+.cdate{font-size:15px;color:#fff;font-weight:600}
+.cdate small{display:block;margin-top:4px;font-size:13.5px;font-weight:400;color:var(--on-d-m);line-height:1.5}
+@media (max-width:760px){
+  .cohort-pill{gap:8px;padding:6px 12px 6px 6px;font-size:12px}
+  .cohort-pill .dot,.cohort-pill .wl,.cohort-pill .sl{display:none}
+  .cohort-pill .sep{display:block}
+  .cohort{grid-template-columns:1fr}
+  .cohort>div+div{border-left:0;border-top:1px solid rgba(255,255,255,.09)}
+  .seats{grid-template-columns:repeat(10,1fr)}
+}
+.cohort-pill .ws{display:none}
+@media (max-width:760px){.cohort-pill .ws{display:inline}}
+@media (prefers-reduced-motion:reduce){.cohort-pill .dot{animation:none}.js .seats i.open{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -435,6 +477,7 @@ h2 em.e{display:block}
 
 <!-- 01 HERO: eyebrow proof tag, headline + emphasis line, sub, VSL, one button, risk line, proof -->
 <section class="hero" id="hero" data-section="hero">
+  <p class="cohort-pill" data-cohort-pill><span class="tag">January Cohort</span><span class="dot" aria-hidden="true"></span><span><b data-left>13</b> of <span data-total>30</span> <span class="sl">seats </span>left</span><span class="sep" aria-hidden="true"></span><span class="when"><span class="wl">Applications close</span><span class="ws">Closes</span> <span data-close>Dec 15</span></span></p>
   <h1><span class="ln"><span>Medicare Agent? Could You Take On More Clients?</span></span><span class="ln"><span><em class="e">Then This Is For You.</em></span></span></h1>
   <p class="sub">For $100K+ agents ready to double their business in the next 12 months.</p>
 
@@ -777,7 +820,7 @@ h2 em.e{display:block}
         <h3>This Is Not For You If</h3>
         <ul>
           <li>You&rsquo;re just looking for cheap leads.</li>
-          <li>You want someone else to do all the work.</li>
+          <li>You won&rsquo;t follow up with the leads we send.</li>
           <li>You&rsquo;re not producing yet.</li>
           <li>You need to double your business in 30 days.</li>
         </ul>
@@ -789,8 +832,22 @@ h2 em.e{display:block}
 <!-- 09 CLOSE, footer folded in -->
 <section class="close dark" id="book" data-section="close">
   <div class="wrap">
-    <h2 class="r">My Team Builds Every One By Hand. <em class="e">We&rsquo;re Only Taking 30.</em></h2>
-    <p class="lead r">Thirty agents this quarter. Our programs have always filled months in advance, and this one is built to fill your January pipeline, so it will probably go faster.</p>
+    <p class="label r" style="justify-content:center">The January Cohort</p>
+    <h2 class="r">Thirty Agents. <em class="e"><span data-left>13</span> Seats Left.</em></h2>
+    <p class="lead r">My team builds every Marketing Machine by hand, so each cohort is capped at <span data-total>30</span> agents. Applications for January close <span data-close-long>December 15</span>.</p>
+    <div class="cohort r">
+      <div>
+        <p class="ck">Seats</p>
+        <p class="cn"><strong data-left>13</strong><span>of <span data-total>30</span> left<small>in the January cohort</small></span></p>
+        <div class="seats" id="seats" aria-hidden="true"></div>
+        <p class="legend"><span><i></i>Taken</span><span><i class="open"></i>Open</span></p>
+      </div>
+      <div>
+        <p class="ck">Applications close in</p>
+        <div class="cd" id="cd" role="timer" aria-live="off"><div><b data-cd="d">--</b><small>Days</small></div><div><b data-cd="h">--</b><small>Hrs</small></div><div><b data-cd="m">--</b><small>Min</small></div><div><b data-cd="s">--</b><small>Sec</small></div></div>
+        <p class="cdate" id="cdate"><span data-close-long>December 15</span><small>Book your call before then to claim one of the open seats.</small></p>
+      </div>
+    </div>
     <div class="cta r">
       <a class="btn" href="#book" data-apply>Book A Call With Johnny<i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
       <p class="risk">One on one with Johnny. You leave with a plan, whether we work together or not.</p>
@@ -822,8 +879,36 @@ h2 em.e{display:block}
 document.documentElement.classList.add('js');
 (function () {
   /* ---- CONFIG ---- */
-  var VSL_SRC = '';      // drop the VSL mp4 path here (e.g. 'assets/video/vsl.mp4'); empty = placeholder
-  var VSL_PREVIEW = '';  // optional 10s silent 540p loop; falls back to VSL_SRC muted
+  /* ---- COHORT: keep these numbers true. Update SEATS_LEFT as agents sign. ---- */
+  var COHORT = { total: 30, left: 13, close: '2026-12-15T23:59:59-06:00', closeShort: 'Dec 15', closeLong: 'December 15' };
+  (function () {
+    function all(q){ return document.querySelectorAll(q); }
+    all('[data-left]').forEach(function (e) { e.textContent = COHORT.left; });
+    all('[data-total]').forEach(function (e) { e.textContent = COHORT.total; });
+    all('[data-close]').forEach(function (e) { e.textContent = COHORT.closeShort; });
+    all('[data-close-long]').forEach(function (e) { e.textContent = COHORT.closeLong; });
+    var g = document.getElementById('seats');
+    if (g) {
+      var taken = COHORT.total - COHORT.left, h = '';
+      for (var k = 0; k < COHORT.total; k++) h += k < taken ? '<i></i>' : '<i class="open" style="transition-delay:' + ((k - taken) * 70) + 'ms"></i>';
+      g.innerHTML = h;
+      if ('IntersectionObserver' in window) { var io = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) { g.classList.add('in'); io.disconnect(); } }); }, { threshold: .4 }); io.observe(g); } else g.classList.add('in');
+    }
+    var end = new Date(COHORT.close).getTime(), cd = document.getElementById('cd');
+    function pad(n){ return (n < 10 ? '0' : '') + n; }
+    function tick() {
+      var t = Math.max(0, end - Date.now());
+      if (!cd) return;
+      if (t === 0) { cd.style.display = 'none'; var c = document.getElementById('cdate'); if (c) c.innerHTML = 'Applications for January are closed.<small>Book a call to get on the list for the next cohort.</small>'; var w = document.querySelector('[data-cohort-pill] .when'); if (w) w.textContent = 'Applications closed'; return; }
+      var d = Math.floor(t / 864e5), hh = Math.floor(t / 36e5) % 24, mm = Math.floor(t / 6e4) % 60, ss = Math.floor(t / 1e3) % 60;
+      cd.querySelector('[data-cd="d"]').textContent = d; cd.querySelector('[data-cd="h"]').textContent = pad(hh);
+      cd.querySelector('[data-cd="m"]').textContent = pad(mm); cd.querySelector('[data-cd="s"]').textContent = pad(ss);
+      setTimeout(tick, 1000);
+    }
+    tick();
+  })();
+  var VSL_SRC = 'assets/video/vsl.mp4';      // drop the VSL mp4 path here (e.g. 'assets/video/vsl.mp4'); empty = placeholder
+  var VSL_PREVIEW = 'assets/video/vsl-preview.mp4';  // optional 10s silent 540p loop; falls back to VSL_SRC muted
 
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
