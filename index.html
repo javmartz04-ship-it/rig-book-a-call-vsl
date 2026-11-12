@@ -70,14 +70,15 @@ h2 em.e{display:block}
 .eyebrow{display:inline-flex;align-items:center;gap:12px;margin-top:clamp(18px,3.4svh,40px);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .eyebrow::before,.eyebrow::after{content:"";width:24px;height:1px;background:var(--gold)}
 .eyebrow b{color:var(--ink);font-weight:700}
-.hero h1{margin:clamp(12px,1.8svh,18px) auto 0;font-size:clamp(36px,min(4.4vw,7.4svh),70px);line-height:1.0}
-.hero h1 .ln:first-child{white-space:nowrap}
+.hero h1{margin:clamp(12px,1.8svh,18px) auto 0;font-size:clamp(34px,min(4.1vw,6.2svh),62px);line-height:1.0}
+.hero h1 .ln{white-space:nowrap}
 .hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
 .hero h1 .ln>span{display:block}
 .hero h1 em.e{letter-spacing:-.02em}
 .js .hero h1 .ln>span{transform:translateY(105%);transition:transform 1.1s var(--ease)}
 .js .hero.go h1 .ln>span{transform:none}
 .js .hero.go h1 .ln:nth-child(2)>span{transition-delay:.12s}
+.js .hero.go h1 .ln:nth-child(3)>span{transition-delay:.24s}
 .sub{max-width:38em;margin:clamp(12px,1.8svh,18px) auto 0;font-size:clamp(16.5px,1.3vw,19px);line-height:1.55;color:var(--body);text-wrap:balance}
 .sub b{color:var(--ink);font-weight:700}
 
@@ -373,7 +374,7 @@ h2 em.e{display:block}
   .eyebrow::before,.eyebrow::after{width:14px;flex:none}
   .eyebrow span{max-width:19em}
   .hero h1{font-size:clamp(33px,9.4vw,42px);margin-top:10px;text-wrap:balance}
-  .hero h1 .ln:first-child{white-space:normal}
+  .hero h1 .ln{white-space:normal}
   .sub{font-size:16px;margin-top:12px}
   .vsl{width:100%;margin-top:18px;padding:5px}
   .vsl-t{max-width:52%}
@@ -425,8 +426,8 @@ h2 em.e{display:block}
 <!-- 01 HERO: eyebrow proof tag, headline + emphasis line, sub, VSL, one button, risk line, proof -->
 <section class="hero" id="hero" data-section="hero">
   <p class="eyebrow"><span>Managing Up To <b>$500K</b> In Ad Spend For Agents</span></p>
-  <h1><span class="ln"><span>Medicare Agents, Want Way More Leads</span></span><span class="ln"><span><em class="e">Every Month, Not Just In AEP?</em></span></span></h1>
-  <p class="sub">For agents producing $100K+ a year and agency owners. We build your <b>Marketing Machine</b>, the ads, the follow-up and the CRM, and run it with you for a full year.</p>
+  <h1><span class="ln"><span>Medicare Agent? Could You Take On</span></span><span class="ln"><span>Way More Clients Than You Have Now?</span></span><span class="ln"><span><em class="e">Then This Is For You.</em></span></span></h1>
+  <p class="sub">For $100K+ agents who aren't getting the leads they want. We build your <b>Marketing Machine</b>, the ads, the follow-up and the CRM, and run it with you for a year, so new clients book on your calendar every month, not just in AEP.</p>
 
   <div class="vsl" id="vsl">
     <div class="vsl-in">
