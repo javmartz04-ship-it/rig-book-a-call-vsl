@@ -429,13 +429,18 @@ h2 em.e{display:block}
   .js .chart path.draw{stroke-dashoffset:0;transition:none}
 }
 /* cohort: seats + deadline (numbers come from COHORT in the script) */
-.cohort-pill{display:inline-flex;align-items:center;gap:12px;margin-top:clamp(14px,2.4svh,26px);padding:7px 14px 7px 8px;border-radius:999px;background:var(--ink);color:#fff;font-size:13px;font-weight:600;line-height:1.2;box-shadow:0 10px 24px -14px rgba(10,10,10,.6)}
-.cohort-pill .tag{padding:4px 9px;border-radius:999px;background:var(--gold);color:var(--ink);font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
-.cohort-pill b{color:var(--gold);font-weight:800}
-.cohort-pill .sep{width:1px;height:14px;background:rgba(255,255,255,.22)}
-.cohort-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(201,168,106,.7);animation:pulse 2s var(--ease) infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,168,106,.6)}70%{box-shadow:0 0 0 9px rgba(201,168,106,0)}100%{box-shadow:0 0 0 0 rgba(201,168,106,0)}}
-.cohort-pill+h1{margin-top:clamp(18px,3svh,34px)!important}
+.cohort-bar{position:relative;display:inline-grid;grid-template-columns:repeat(3,auto);margin-top:clamp(12px,2svh,22px);border-radius:var(--r);background:#fff;box-shadow:0 0 0 1px var(--line),0 1px 0 #fff inset,0 18px 36px -24px rgba(10,10,10,.35);text-align:left;overflow:hidden}
+.cohort-bar>span{display:block;padding:10px clamp(16px,2vw,28px) 13px}
+.cohort-bar>span+span{box-shadow:-1px 0 0 var(--line)}
+.cohort-bar small{display:flex;align-items:center;gap:7px;font-size:9.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.cohort-bar strong{display:block;margin-top:3px;font-size:15.5px;font-weight:700;letter-spacing:-.01em;color:var(--ink);white-space:nowrap}
+.cohort-bar strong em{display:inline-block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.6em;line-height:.6;color:var(--gold-ink);margin-right:4px;transform:translateY(1px)}
+.cohort-bar .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:pulse 2.4s var(--ease) infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,168,106,.6)}70%{box-shadow:0 0 0 7px rgba(201,168,106,0)}100%{box-shadow:0 0 0 0 rgba(201,168,106,0)}}
+.cohort-bar .meter{position:absolute;left:0;right:0;bottom:0;display:flex;gap:2px;height:3px;padding:0}
+.cohort-bar .meter i{flex:1;background:var(--ink)}
+.cohort-bar .meter i.open{background:var(--gold)}
+.cohort-bar+h1{margin-top:clamp(18px,3svh,34px)!important}
 .seats{display:grid;grid-template-columns:repeat(15,1fr);gap:6px}
 .seats i{aspect-ratio:1;border-radius:2px;background:rgba(255,255,255,.12)}
 .seats i.open{background:var(--gold);box-shadow:0 0 14px -4px rgba(201,168,106,.7)}
@@ -460,16 +465,15 @@ h2 em.e{display:block}
 .cdate{font-size:15px;color:#fff;font-weight:600}
 .cdate small{display:block;margin-top:4px;font-size:13.5px;font-weight:400;color:var(--on-d-m);line-height:1.5}
 @media (max-width:760px){
-  .cohort-pill{gap:8px;padding:6px 12px 6px 6px;font-size:12px}
-  .cohort-pill .dot,.cohort-pill .wl,.cohort-pill .sl{display:none}
-  .cohort-pill .sep{display:block}
+  .cohort-bar{display:grid;margin-left:2px;margin-right:2px}
+  .cohort-bar>span{padding:9px 10px 12px}
+  .cohort-bar small{font-size:8.5px;letter-spacing:.16em;gap:5px}
+  .cohort-bar strong{font-size:13.5px}
   .cohort{grid-template-columns:1fr}
   .cohort>div+div{border-left:0;border-top:1px solid rgba(255,255,255,.09)}
   .seats{grid-template-columns:repeat(10,1fr)}
 }
-.cohort-pill .ws{display:none}
-@media (max-width:760px){.cohort-pill .ws{display:inline}}
-@media (prefers-reduced-motion:reduce){.cohort-pill .dot{animation:none}.js .seats i.open{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){.cohort-bar .dot{animation:none}.js .seats i.open{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -477,7 +481,7 @@ h2 em.e{display:block}
 
 <!-- 01 HERO: eyebrow proof tag, headline + emphasis line, sub, VSL, one button, risk line, proof -->
 <section class="hero" id="hero" data-section="hero">
-  <p class="cohort-pill" data-cohort-pill><span class="tag">January Cohort</span><span class="dot" aria-hidden="true"></span><span><b data-left>13</b> of <span data-total>30</span> <span class="sl">seats </span>left</span><span class="sep" aria-hidden="true"></span><span class="when"><span class="wl">Applications close</span><span class="ws">Closes</span> <span data-close>Dec 15</span></span></p>
+  <p class="cohort-bar" data-cohort-pill><span><small>Cohort</small><strong>January 2027</strong></span><span><small><i class="dot" aria-hidden="true"></i>Seats</small><strong><em data-left>13</em> of <span data-total>30</span> left</strong></span><span><small>Applications Close</small><strong class="when" data-close-long>December 15</strong></span><span class="meter" id="meter" aria-hidden="true"></span></p>
   <h1><span class="ln"><span>Medicare Agents: If&nbsp;You Can Handle More</span></span><span class="ln"><span>Clients Than You Have, Let&rsquo;s Build</span></span><span class="ln"><span><em class="e">The Engine That Brings Them In.</em></span></span></h1>
   <p class="sub">For $100K+ agents ready to double their business in the next 12 months.</p>
 
@@ -887,6 +891,8 @@ document.documentElement.classList.add('js');
     all('[data-total]').forEach(function (e) { e.textContent = COHORT.total; });
     all('[data-close]').forEach(function (e) { e.textContent = COHORT.closeShort; });
     all('[data-close-long]').forEach(function (e) { e.textContent = COHORT.closeLong; });
+    var mt = document.getElementById('meter');
+    if (mt) { var mh = ''; for (var q = 0; q < COHORT.total; q++) mh += q < COHORT.total - COHORT.left ? '<i></i>' : '<i class="open"></i>'; mt.innerHTML = mh; }
     var g = document.getElementById('seats');
     if (g) {
       var taken = COHORT.total - COHORT.left, h = '';
@@ -899,7 +905,7 @@ document.documentElement.classList.add('js');
     function tick() {
       var t = Math.max(0, end - Date.now());
       if (!cd) return;
-      if (t === 0) { cd.style.display = 'none'; var c = document.getElementById('cdate'); if (c) c.innerHTML = 'Applications for January are closed.<small>Book a call to get on the list for the next cohort.</small>'; var w = document.querySelector('[data-cohort-pill] .when'); if (w) w.textContent = 'Applications closed'; return; }
+      if (t === 0) { cd.style.display = 'none'; var c = document.getElementById('cdate'); if (c) c.innerHTML = 'Applications for January are closed.<small>Book a call to get on the list for the next cohort.</small>'; var w = document.querySelector('[data-cohort-pill] .when'); if (w) w.textContent = 'Closed'; return; }
       var d = Math.floor(t / 864e5), hh = Math.floor(t / 36e5) % 24, mm = Math.floor(t / 6e4) % 60, ss = Math.floor(t / 1e3) % 60;
       cd.querySelector('[data-cd="d"]').textContent = d; cd.querySelector('[data-cd="h"]').textContent = pad(hh);
       cd.querySelector('[data-cd="m"]').textContent = pad(mm); cd.querySelector('[data-cd="s"]').textContent = pad(ss);
@@ -907,8 +913,8 @@ document.documentElement.classList.add('js');
     }
     tick();
   })();
-  var VSL_SRC = 'assets/video/vsl.mp4';      // drop the VSL mp4 path here (e.g. 'assets/video/vsl.mp4'); empty = placeholder
-  var VSL_PREVIEW = 'assets/video/vsl-preview.mp4';  // optional 10s silent 540p loop; falls back to VSL_SRC muted
+  var VSL_SRC = 'assets/video/vsl-b.mp4';      // drop the VSL mp4 path here (e.g. 'assets/video/vsl.mp4'); empty = placeholder
+  var VSL_PREVIEW = 'assets/video/vsl-b-preview.mp4';  // optional 10s silent 540p loop; falls back to VSL_SRC muted
 
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
