@@ -441,39 +441,47 @@ h2 em.e{display:block}
 .cohort-bar .meter i{flex:1;background:var(--ink)}
 .cohort-bar .meter i.open{background:var(--gold)}
 .cohort-bar+h1{margin-top:clamp(18px,3svh,34px)!important}
-.seats{display:grid;grid-template-columns:repeat(15,1fr);gap:6px}
-.seats i{aspect-ratio:1;border-radius:2px;background:rgba(255,255,255,.12)}
-.seats i.open{background:var(--gold);box-shadow:0 0 14px -4px rgba(201,168,106,.7)}
-.js .seats i.open{opacity:0;transform:scale(.6);transition:opacity .5s var(--ease),transform .5s var(--ease)}
-.js .seats.in i.open{opacity:1;transform:none}
-.cohort{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);max-width:960px;margin:clamp(40px,5vw,60px) auto 0;text-align:left;border-radius:6px;background:linear-gradient(180deg,#141414,#0c0c0c);box-shadow:0 0 0 1px rgba(255,255,255,.09),0 1px 0 rgba(255,255,255,.06) inset,0 40px 80px -40px rgba(0,0,0,.8)}
-.cohort>div{padding:clamp(24px,3vw,38px)}
-.cohort>div+div{border-left:1px solid rgba(255,255,255,.09)}
-.ck{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--on-d-m)}
-.cn{display:flex;align-items:baseline;gap:12px;margin:10px 0 20px}
-.cn strong{font-size:clamp(56px,6vw,84px);font-weight:800;line-height:.9;letter-spacing:-.04em;color:var(--gold)}
-.cn span{font-size:16px;color:#fff;font-weight:600}
-.cn span small{display:block;font-size:13.5px;font-weight:400;color:var(--on-d-m)}
-.legend{display:flex;gap:18px;margin-top:14px;font-size:12.5px;color:var(--on-d-m)}
+.cohort{max-width:880px;margin:clamp(40px,5vw,60px) auto 0;text-align:left;border-radius:var(--r);background:#fff;color:var(--ink);overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.14),0 50px 90px -50px rgba(0,0,0,.9)}
+.c-top{display:grid;grid-template-columns:1fr 1.15fr 1fr}
+.c-top>div{padding:clamp(20px,2.4vw,30px) clamp(20px,2.6vw,34px)}
+.c-top>div+div{box-shadow:-1px 0 0 var(--line)}
+.ck{display:flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.ck .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:pulse 2.4s var(--ease) infinite}
+.cv{margin-top:8px;font-size:clamp(20px,2.1vw,27px);font-weight:700;letter-spacing:-.022em;line-height:1.1;white-space:nowrap}
+.cv em{display:inline-block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.75em;line-height:.6;color:var(--gold-ink);margin-right:6px;transform:translateY(2px)}
+.c-bot{display:flex;align-items:center;justify-content:space-between;gap:20px 32px;flex-wrap:wrap;padding:clamp(16px,1.8vw,22px) clamp(20px,2.6vw,34px) clamp(22px,2.4vw,30px);border-top:1px solid var(--line);background:var(--paper)}
+.cd{display:flex;align-items:baseline;gap:clamp(14px,1.8vw,24px)}
+.cd .ck{margin-right:4px}
+.cd div{display:flex;align-items:baseline;gap:6px}
+.cd b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(26px,2.6vw,34px);line-height:1;color:var(--ink);font-variant-numeric:tabular-nums;min-width:1.15em;text-align:right}
+.cd small{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.cdate{font-size:14px;color:var(--body);line-height:1.5}
+.legend{display:flex;gap:18px;font-size:12.5px;color:var(--muted)}
 .legend span{display:inline-flex;align-items:center;gap:7px}
-.legend i{width:11px;height:11px;border-radius:2px;background:rgba(255,255,255,.12)}
+.legend i{width:14px;height:4px;background:var(--ink)}
 .legend i.open{background:var(--gold)}
-.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 18px}
-.cd div{padding:12px 4px 10px;border-radius:2px;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);text-align:center}
-.cd b{display:block;font-size:clamp(26px,2.6vw,34px);font-weight:800;letter-spacing:-.03em;color:#fff;font-variant-numeric:tabular-nums;line-height:1}
-.cd small{display:block;margin-top:6px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--on-d-m)}
-.cdate{font-size:15px;color:#fff;font-weight:600}
-.cdate small{display:block;margin-top:4px;font-size:13.5px;font-weight:400;color:var(--on-d-m);line-height:1.5}
+.seats{display:flex;gap:3px;height:6px}
+.seats i{flex:1;background:var(--ink)}
+.seats i.open{background:var(--gold)}
+.js .seats i.open{transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.js .seats.in i.open{transform:none}
 @media (max-width:760px){
   .cohort-bar{display:grid;margin-left:2px;margin-right:2px}
   .cohort-bar>span{padding:9px 10px 12px}
   .cohort-bar small{font-size:8.5px;letter-spacing:.16em;gap:5px}
   .cohort-bar strong{font-size:13.5px}
-  .cohort{grid-template-columns:1fr}
-  .cohort>div+div{border-left:0;border-top:1px solid rgba(255,255,255,.09)}
-  .seats{grid-template-columns:repeat(10,1fr)}
+  .c-top{grid-template-columns:1fr 1fr}
+  .c-top>div:first-child{grid-column:1/-1;box-shadow:0 1px 0 var(--line)}
+  .c-top>div:nth-child(2){box-shadow:none}
+  .c-top>div{padding:16px 18px}
+  .cv{font-size:19px}
+  .c-top .ck{font-size:9px;letter-spacing:.13em;white-space:nowrap}
+  .cd{flex-wrap:wrap;gap:6px 14px}
+  .cd .ck{flex-basis:100%}
+  .cd b{font-size:26px;min-width:0}
+  .seats{gap:2px}
 }
-@media (prefers-reduced-motion:reduce){.cohort-bar .dot{animation:none}.js .seats i.open{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){.cohort-bar .dot{animation:none}.js .seats i.open{transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -840,17 +848,17 @@ h2 em.e{display:block}
     <h2 class="r">Thirty Agents. <em class="e"><span data-left>13</span> Seats Left.</em></h2>
     <p class="lead r">My team builds every Marketing Machine by hand, so each cohort is capped at <span data-total>30</span> agents. Applications for January close <span data-close-long>December 15</span>.</p>
     <div class="cohort r">
-      <div>
-        <p class="ck">Seats</p>
-        <p class="cn"><strong data-left>13</strong><span>of <span data-total>30</span> left<small>in the January cohort</small></span></p>
-        <div class="seats" id="seats" aria-hidden="true"></div>
+      <div class="c-top">
+        <div><p class="ck">Cohort</p><p class="cv">January 2027</p></div>
+        <div><p class="ck"><i class="dot" aria-hidden="true"></i>Seats</p><p class="cv"><em data-left>13</em> of <span data-total>30</span> left</p></div>
+        <div><p class="ck">Applications Close</p><p class="cv" data-close-long>December 15</p></div>
+      </div>
+      <div class="c-bot">
+        <div class="cd" id="cd" role="timer" aria-live="off"><p class="ck">Closes In</p><div><b data-cd="d">--</b><small>Days</small></div><div><b data-cd="h">--</b><small>Hrs</small></div><div><b data-cd="m">--</b><small>Min</small></div><div><b data-cd="s">--</b><small>Sec</small></div></div>
+        <p class="cdate" id="cdate" hidden></p>
         <p class="legend"><span><i></i>Taken</span><span><i class="open"></i>Open</span></p>
       </div>
-      <div>
-        <p class="ck">Applications close in</p>
-        <div class="cd" id="cd" role="timer" aria-live="off"><div><b data-cd="d">--</b><small>Days</small></div><div><b data-cd="h">--</b><small>Hrs</small></div><div><b data-cd="m">--</b><small>Min</small></div><div><b data-cd="s">--</b><small>Sec</small></div></div>
-        <p class="cdate" id="cdate"><span data-close-long>December 15</span><small>Book your call before then to claim one of the open seats.</small></p>
-      </div>
+      <div class="seats" id="seats" aria-hidden="true"></div>
     </div>
     <div class="cta r">
       <a class="btn" href="#book" data-apply>Book A Call With Johnny<i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h11M9 4l4 4-4 4"/></svg></i></a>
@@ -896,7 +904,7 @@ document.documentElement.classList.add('js');
     var g = document.getElementById('seats');
     if (g) {
       var taken = COHORT.total - COHORT.left, h = '';
-      for (var k = 0; k < COHORT.total; k++) h += k < taken ? '<i></i>' : '<i class="open" style="transition-delay:' + ((k - taken) * 70) + 'ms"></i>';
+      for (var k = 0; k < COHORT.total; k++) h += k < taken ? '<i></i>' : '<i class="open" style="transition-delay:' + ((k - taken) * 60) + 'ms"></i>';
       g.innerHTML = h;
       if ('IntersectionObserver' in window) { var io = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) { g.classList.add('in'); io.disconnect(); } }); }, { threshold: .4 }); io.observe(g); } else g.classList.add('in');
     }
@@ -905,7 +913,7 @@ document.documentElement.classList.add('js');
     function tick() {
       var t = Math.max(0, end - Date.now());
       if (!cd) return;
-      if (t === 0) { cd.style.display = 'none'; var c = document.getElementById('cdate'); if (c) c.innerHTML = 'Applications for January are closed.<small>Book a call to get on the list for the next cohort.</small>'; var w = document.querySelector('[data-cohort-pill] .when'); if (w) w.textContent = 'Closed'; return; }
+      if (t === 0) { cd.style.display = 'none'; var c = document.getElementById('cdate'); if (c) { c.hidden = false; c.textContent = 'Applications for January are closed. Book a call to get on the list for the next cohort.'; } var w = document.querySelector('[data-cohort-pill] .when'); if (w) w.textContent = 'Closed'; return; }
       var d = Math.floor(t / 864e5), hh = Math.floor(t / 36e5) % 24, mm = Math.floor(t / 6e4) % 60, ss = Math.floor(t / 1e3) % 60;
       cd.querySelector('[data-cd="d"]').textContent = d; cd.querySelector('[data-cd="h"]').textContent = pad(hh);
       cd.querySelector('[data-cd="m"]').textContent = pad(mm); cd.querySelector('[data-cd="s"]').textContent = pad(ss);
