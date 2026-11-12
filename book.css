@@ -1,0 +1,12 @@
+/* Base for book.html. Same tokens as index.html (the live therealinsurancegroup.com set). */
+:root{
+  --white:#fff;--ink:#0a0a0a;--muted:#6b6b6b;--line:#e2e2df;--on-d:#cccccc;
+  --gold:#c9a86a;--ease:cubic-bezier(.32,.72,0,1);
+  --disp:'Archivo',system-ui,sans-serif;--serif:'Playfair Display',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--disp);color:var(--ink);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%}
+h1{font-family:var(--disp);font-weight:800;letter-spacing:-.032em;line-height:1.02;font-variation-settings:"wdth" 96}
+em.e{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.012em;font-variation-settings:normal}
