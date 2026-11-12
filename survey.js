@@ -1,5 +1,5 @@
 (() => {
-  const WEBHOOK = 'https://services.leadconnectorhq.com/hooks/TmgbRF4QVy9W3Iy51EJF/webhook-trigger/abcb6d79-aa12-41dd-a619-a0d3804637ed'; // GHL inbound webhook for applications (shared with the website survey; source field tells them apart).
+  const WEBHOOK = 'https://services.leadconnectorhq.com/hooks/6R8qbbSpBWNiFPaF6WsI/webhook-trigger/a99cd732-3f15-46af-919b-84c6b4edc307'; // GHL inbound webhook for this funnel's applications (own hook since 2026-11-12)
   const ARROW = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h11M9 4l4 4-4 4"/></svg>';
   const CTA = 'Book A Call With Johnny';
 
