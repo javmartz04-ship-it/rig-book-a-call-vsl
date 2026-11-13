@@ -383,8 +383,12 @@ h2 em.e{display:block}
   .eyebrow{margin-top:22px;font-size:10.5px;letter-spacing:.16em;gap:8px}
   .eyebrow::before,.eyebrow::after{width:14px;flex:none}
   .eyebrow span{max-width:19em}
-  .hero h1{font-size:clamp(25px,7.1vw,31px);line-height:1.06;margin-top:26px;text-wrap:balance}
+  .hero h1{font-size:clamp(19.5px,6.35vw,28px);line-height:1.08;margin-top:22px;text-wrap:balance}
   .hero h1 .ln{white-space:normal}
+  .hero h1 .ln:not(:last-child),.hero h1 .ln:not(:last-child)>span{display:inline;overflow:visible;padding:0;transform:none!important}
+  .hero h1 .ln:not(:last-child)::after{content:" "}
+  .hero h1 .ln:last-child{white-space:nowrap;margin-top:.04em}
+  .hero h1 em.e{font-size:1.04em}
   .sub{font-size:16px;margin-top:12px}
   .vsl{width:100%;margin-top:18px;padding:5px}
   .vsl-t{max-width:52%}
