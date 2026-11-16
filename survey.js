@@ -79,7 +79,7 @@
     f.querySelector('.btn').disabled = true;
     const [first_name, ...rest] = (answers.full_name || '').trim().split(/\s+/);
     // keepalive lets the send finish even if we move on to the calendar first. A slow webhook never holds up booking.
-    const sent = fetch(WEBHOOK, { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...answers, first_name, last_name: rest.join(' '), source: 'vsl_book_a_call' }) }).catch(() => {});
+    const sent = fetch(WEBHOOK, { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...answers, first_name, last_name: rest.join(' '), source: window.RIG_SOURCE || 'vsl_book_a_call' }) }).catch(() => {});
     await Promise.race([sent, new Promise(r => setTimeout(r, 2500))]);
     finished = true;
     fill.style.width = '100%';
