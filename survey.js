@@ -37,7 +37,7 @@
   function render(dir = '') {
     const s = STEPS[i];
     fill.style.width = `${((i + 1) / STEPS.length) * 100}%`;
-    const head = `<div class="sv-c"><span class="sv-n"><b>${pad(i + 1)}</b> / ${pad(STEPS.length)}</span>${i ? '<button type="button" class="sv-b" id="svBack">← Back</button>' : ''}</div><h2 class="q" tabindex="-1">${s.q}</h2><p class="help">${s.hint}</p>`;
+    const head = `<div class="sv-c"><span class="sv-n"><b>${pad(i + 1)}</b> / ${pad(STEPS.length)}</span>${i ? '<button type="button" class="sv-b" id="svBack">Back</button>' : ''}</div><h2 class="q" tabindex="-1">${s.q}</h2><p class="help">${s.hint}</p>`;
     if (s.options) {
       const opts = typeof s.options === 'function' ? s.options(answers) : s.options;
       stage.innerHTML = `<div class="step ${dir}">${head}<div class="opts" role="radiogroup" aria-label="${s.q}">${opts.map((o, n) => `<button type="button" class="opt" role="radio" aria-checked="${answers[s.id] === o}" data-v="${o}"><span class="key">${String.fromCharCode(65 + n)}</span><span class="tx">${o}</span></button>`).join('')}</div></div>`;
@@ -85,7 +85,7 @@
     fill.style.width = '100%';
     // book.html only opens for someone holding this pass.
     try { localStorage.setItem('rig_applied', String(Date.now())); } catch (_) { window.name = 'rig_applied'; }
-    location.href = 'book.html';
+    location.href = window.BOOK_URL || 'book.html';
   }
 
   // Coming back from the booking page with the browser's Back button.
