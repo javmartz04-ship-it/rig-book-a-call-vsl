@@ -16,6 +16,7 @@ BOOK_URL = '/consultation'          # step 2 of the GHL funnel (calendar)
 PAGES = {                            # source file -> loader name
     'index.html': 'vsl',             # control: /opt-in-vsl
     'index-photo.html': 'photo',     # split-test variation
+    'book.html': 'call',             # step 2: /consultation (calendar)
 }
 
 
@@ -31,6 +32,10 @@ def build(src, name):
     html = (ROOT / src).read_text()
     # the quiz sends finished applicants to the GHL calendar step
     html = html.replace('<script src="survey.js', "<script>window.BOOK_URL = '%s';</script>\n<script src=\"survey.js" % BOOK_URL, 1)
+    # inline the booking page's stylesheet (the live GHL page has no book.css next to it)
+    css = re.search(r'<link rel="stylesheet" href="book\.css[^"]*">', html)
+    if css:
+        html = html.replace(css.group(0), '<style>' + (ROOT / 'book.css').read_text() + '</style>')
     html = absolutize(html)
     head = re.search(r'<head>(.*?)</head>', html, re.S).group(1)
     body = re.search(r'<body[^>]*>(.*)</body>', html, re.S).group(1)
