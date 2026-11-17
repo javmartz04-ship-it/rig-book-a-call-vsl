@@ -79,7 +79,7 @@
     f.querySelector('.btn').disabled = true;
     const [first_name, ...rest] = (answers.full_name || '').trim().split(/\s+/);
     // keepalive lets the send finish even if we move on to the calendar first. A slow webhook never holds up booking.
-    const payload = { ...answers, first_name, last_name: rest.join(' '), source: window.RIG_SOURCE || 'vsl_book_a_call' };
+    const payload = { ...answers, first_name, last_name: rest.join(' '), source: window.RIG_SOURCE || 'vsl_book_a_call', page: location.href };   // page = fallback attribution if meta.js is blocked
     // Meta pixel: SubmitApplication (value = revenue tier 1-5), and the ids that let CAPI dedupe against it.
     if (window.rigMeta) Object.assign(payload, rigMeta.lead(payload));
     const sent = fetch(WEBHOOK, { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).catch(() => {});
