@@ -30,7 +30,7 @@
   const root = $('sv'), card = $('svCard'), stage = $('svStage'), fill = $('svFill');
   const answers = {};
   const pad = n => String(n).padStart(2, '0');
-  let i = 0, locked = false, finished = false, opener = null;
+  let i = 0, locked = false, finished = false, opener = null, opened = false;
 
   const go = (n, dir = '') => { i = n; locked = false; render(dir); };
 
@@ -102,6 +102,9 @@
     root.inert = false;
     root.classList.add('open');
     document.body.style.overflow = 'hidden';
+    // Meta pixel: Contact = survey opened (once per page view). Standard event because the dataset is on core
+    // setup, which drops custom events. Gives visit -> started -> SubmitApplication, so we can see where people stall.
+    if (!opened && window.fbq) { opened = true; try { fbq('track', 'Contact'); } catch (_) {} }
     render();
   }
 
